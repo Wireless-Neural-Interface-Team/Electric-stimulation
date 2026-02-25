@@ -7,6 +7,7 @@ Uses wavegene_backend for DAQ logic.
 """
 
 import json
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
@@ -20,6 +21,13 @@ from PyQt5.QtWidgets import (
 )
 
 from wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
+
+
+def _app_dir():
+    """Return app directory (next to exe when frozen, else script dir)."""
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).parent
+    return Path(__file__).parent
 
 
 class WaveGeneWindow(QMainWindow):
@@ -325,7 +333,7 @@ class WaveGeneWindow(QMainWindow):
             "heure_debut": exp_time.strftime("%Y-%m-%d %H:%M:%S"),
             "heure_fin": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
-        save_dir = Path(__file__).parent / "experiences"
+        save_dir = _app_dir() / "experiences"
         save_dir.mkdir(exist_ok=True)
         filename = exp_time.strftime("wavegene_%Y-%m-%d_%H-%M-%S.json")
         filepath = save_dir / filename
@@ -336,7 +344,7 @@ class WaveGeneWindow(QMainWindow):
         """Load parameters from a JSON file.
         If silent=True (e.g. at startup), loads the most recent file without dialog.
         If silent=False (button click), opens a file dialog to choose the file."""
-        save_dir = Path(__file__).parent / "experiences"
+        save_dir = _app_dir() / "experiences"
         if not save_dir.exists():
             if not silent:
                 QMessageBox.warning(self, "Load", "No experiments folder found.")
