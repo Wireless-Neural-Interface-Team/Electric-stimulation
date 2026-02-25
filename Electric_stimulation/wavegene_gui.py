@@ -20,7 +20,7 @@ from PyQt5.QtWidgets import (
     QPushButton, QLabel, QMessageBox, QLineEdit, QFrame, QFileDialog
 )
 
-from wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
+from .wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
 
 
 def _app_dir():
