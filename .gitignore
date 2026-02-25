@@ -1,1 +1,6 @@
 *.json
+*.exe
+*.pyc
+dist/
+build/
+__pycache__/
