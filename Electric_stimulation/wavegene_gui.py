@@ -19,8 +19,10 @@ from PyQt5.QtWidgets import (
     QGroupBox, QFormLayout, QSpinBox, QDoubleSpinBox, QCheckBox,
     QPushButton, QLabel, QMessageBox, QLineEdit, QFrame, QFileDialog
 )
-
-from .wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
+try:
+    from .wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
+except ImportError:
+    from wavegene_backend import build_channel_path, DAQWorker, DAQ_AVAILABLE
 
 
 def _app_dir():

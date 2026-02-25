@@ -15,7 +15,6 @@ authors = [
 ]
 keywords = ["DAQ", "NI-DAQmx", "electrical-stimulation", "pulse-generator", "PyQt5"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
@@ -40,6 +39,3 @@ wavegene-build = "Electric_stimulation.build_exe:main"
 [project.urls]
 Homepage = "https://github.com/WNIlabs/Electric-stimulation"
 Repository = "https://github.com/WNIlabs/Electric-stimulation"
-
-[tool.hatch.build.targets.wheel]
-packages = ["Electric_stimulation"]
