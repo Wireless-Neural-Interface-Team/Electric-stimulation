@@ -20,7 +20,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install build dependencies
-        run: pip install hatch
+        run: |
+          pip install hatch
+          pip install --upgrade "virtualenv>=20.25.0"
 
       - name: Build package
         run: hatch build
