@@ -39,6 +39,3 @@ wavegene-build = "electric_stimulation.build_exe:main"
 [project.urls]
 Homepage = "https://github.com/WNIlabs/electric_stimulation"
 Repository = "https://github.com/WNIlabs/electric_stimulation"
-
-[tool.hatch.build.targets.wheel]
-packages = ["electric_stimulation"]
