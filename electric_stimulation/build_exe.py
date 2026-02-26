@@ -32,7 +32,7 @@ def main():
             print("Close WaveGene and try again.")
             sys.exit(1)
 
-    launcher = SCRIPT_DIR / "WaveGeneGUI.py"
+    launcher = SCRIPT_DIR / "run_wavegene_gui.py"
     with tempfile.TemporaryDirectory() as tmp:
         cmd = [
             sys.executable, "-m", "PyInstaller",
